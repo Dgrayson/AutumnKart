@@ -7,16 +7,23 @@ public class AIKartController : MonoBehaviour
     [SerializeField] private float steerDirection;
     [SerializeField] private float currSteeringAngle;
 
+    [SerializeField] private float maxSteeringAngle;
+    [SerializeField] private float motorForce;
+    [SerializeField] private float acceleration = 1.0f;
+
+    [SerializeField] private int nextNode = 2;
+
+    [Header("Wheels")]
     [SerializeField] private WheelCollider frontDriverCollider, frontPassengerCollider;
     [SerializeField] private WheelCollider rearDriverCollider, rearPassengerCollider;
 
     [SerializeField] private Transform frontDriverT, frontPassengerT;
     [SerializeField] private Transform rearDriverT, rearPassengerT;
 
-    [SerializeField] private float maxSteeringAngle;
-    [SerializeField] private float motorForce;
-
-    [SerializeField] private int nextNode = 2; 
+    [Header("Sight")]
+    [SerializeField] private float sightDistance = 15;
+    [SerializeField] private bool approachingWall = false;
+    [SerializeField] private LayerMask wallMask; 
 
     private Rigidbody body;
 
@@ -28,6 +35,7 @@ public class AIKartController : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        CheckWalls(); 
         CalculateSteeringDirection(); 
         Steer();
         Accelerate();
@@ -35,6 +43,28 @@ public class AIKartController : MonoBehaviour
         CheckNodeDist(); 
     }
 
+    private void CheckWalls()
+    {
+        Debug.DrawRay(transform.position, Quaternion.AngleAxis(-45, transform.up) * transform.forward * sightDistance, Color.blue);
+        Debug.DrawRay(transform.position, Quaternion.AngleAxis(-30, transform.up) * transform.forward * sightDistance, Color.blue);
+        Debug.DrawRay(transform.position, Quaternion.AngleAxis(-15, transform.up) * transform.forward * sightDistance, Color.blue);
+        Debug.DrawRay(transform.position, transform.forward * sightDistance, Color.blue);
+        Debug.DrawRay(transform.position, Quaternion.AngleAxis(15, transform.up) * transform.forward * sightDistance, Color.blue);
+        Debug.DrawRay(transform.position, Quaternion.AngleAxis(30, transform.up) * transform.forward * sightDistance, Color.blue);
+        Debug.DrawRay(transform.position, Quaternion.AngleAxis(45, transform.up) * transform.forward * sightDistance, Color.blue);
+
+        RaycastHit hit; 
+
+        /*if(Physics.Raycast(transform.position, transform.forward * sightDistance, out hit, wallMask))
+        {
+            Debug.Log("COlliding wth : " + hit.transform.name);
+            approachingWall = true; 
+        }
+        else
+        {
+            approachingWall = false;
+        }*/
+    }
     private void CalculateSteeringDirection()
     {
         Vector3 dirToNode = transform.InverseTransformPoint(TrackNodes.Instance.nodes[nextNode].transform.position);
@@ -46,8 +76,15 @@ public class AIKartController : MonoBehaviour
 
     private void Accelerate()
     {
-        frontDriverCollider.motorTorque = 1 * motorForce;
-        frontPassengerCollider.motorTorque = 1 * motorForce;
+        if (approachingWall)
+        {
+            acceleration = .5f;
+        }
+        else
+            acceleration = 1.0f; 
+
+        frontDriverCollider.motorTorque = acceleration * motorForce;
+        frontPassengerCollider.motorTorque = acceleration * motorForce;
     }
 
     private void Steer()
@@ -83,10 +120,11 @@ public class AIKartController : MonoBehaviour
 
         float currNodeDist = Vector3.Dot(transform.forward, relativePos); 
 
-        Debug.Log("Distance to node: " + currNodeDist);
+        //Debug.Log("Distance to node: " + currNodeDist);
 
         if (currNodeDist <= 0)
         {
+            
             if (nextNode >= TrackNodes.Instance.nodes.Count || nextNode == TrackNodes.Instance.nodes.Count - 1)
                 nextNode = 0; 
             else

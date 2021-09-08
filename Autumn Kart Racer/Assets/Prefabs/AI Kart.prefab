@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8757905886069896650}
   - component: {fileID: 8757905886069896648}
   - component: {fileID: 8757905886069896649}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Rear Passenger Wheel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -59,7 +59,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a0441718e59f2d048a1241c94ff85975, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -92,7 +92,7 @@ GameObject:
   - component: {fileID: 8757905886391188312}
   - component: {fileID: 8757905886391188318}
   - component: {fileID: 8757905886391188319}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Rear Driver Wheel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -140,7 +140,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a0441718e59f2d048a1241c94ff85975, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -172,7 +172,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8757905886442809474}
   - component: {fileID: 8757905886442809473}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Rear Driver Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -203,8 +203,8 @@ WheelCollider:
   m_Center: {x: 0, y: 0, z: 0}
   m_Radius: 0.5
   m_SuspensionSpring:
-    spring: 10000
-    damper: 1000
+    spring: 100
+    damper: 100
     targetPosition: 0.5
   m_SuspensionDistance: 0.3
   m_ForceAppPointDistance: 0
@@ -232,7 +232,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8757905886548224455}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Wheels
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -267,7 +267,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8757905886713221682}
   - component: {fileID: 8757905886713221681}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Rear Passenger Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -298,8 +298,8 @@ WheelCollider:
   m_Center: {x: 0, y: 0, z: 0}
   m_Radius: 0.5
   m_SuspensionSpring:
-    spring: 10000
-    damper: 1000
+    spring: 100
+    damper: 100
     targetPosition: 0.5
   m_SuspensionDistance: 0.3
   m_ForceAppPointDistance: 0
@@ -328,7 +328,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8757905887211150571}
   - component: {fileID: 8757905887211150570}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Front Driver Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -359,8 +359,8 @@ WheelCollider:
   m_Center: {x: 0, y: 0, z: 0}
   m_Radius: 0.5
   m_SuspensionSpring:
-    spring: 10000
-    damper: 1000
+    spring: 100
+    damper: 100
     targetPosition: 0.5
   m_SuspensionDistance: 0.3
   m_ForceAppPointDistance: 0
@@ -390,7 +390,7 @@ GameObject:
   - component: {fileID: 8757905887400516108}
   - component: {fileID: 8757905887400516098}
   - component: {fileID: 8757905887400516099}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Front Passenger Wheel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -438,7 +438,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a0441718e59f2d048a1241c94ff85975, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -471,7 +471,7 @@ GameObject:
   - component: {fileID: 8757905887709315566}
   - component: {fileID: 8757905887709315564}
   - component: {fileID: 8757905887709315565}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Front Driver Wheel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -519,7 +519,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a0441718e59f2d048a1241c94ff85975, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -551,7 +551,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8757905887769884513}
   - component: {fileID: 8757905887769884512}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Front Passenger Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -582,8 +582,8 @@ WheelCollider:
   m_Center: {x: 0, y: 0, z: 0}
   m_Radius: 0.5
   m_SuspensionSpring:
-    spring: 10000
-    damper: 1000
+    spring: 100
+    damper: 100
     targetPosition: 0.5
   m_SuspensionDistance: 0.3
   m_ForceAppPointDistance: 0
@@ -616,9 +616,9 @@ GameObject:
   - component: {fileID: 8757905888040181061}
   - component: {fileID: 8757905888040181062}
   - component: {fileID: 2850783146813289215}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: AI Kart
-  m_TagString: Player
+  m_TagString: AI
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -666,7 +666,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a0441718e59f2d048a1241c94ff85975, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -731,6 +731,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   steerDirection: 0
   currSteeringAngle: 0
+  maxSteeringAngle: 40
+  motorForce: 40
+  acceleration: 1
+  nextNode: 0
   frontDriverCollider: {fileID: 8757905887211150570}
   frontPassengerCollider: {fileID: 8757905887769884512}
   rearDriverCollider: {fileID: 8757905887769884512}
@@ -739,9 +743,11 @@ MonoBehaviour:
   frontPassengerT: {fileID: 8757905887400516108}
   rearDriverT: {fileID: 8757905886391188312}
   rearPassengerT: {fileID: 8757905886069896650}
-  maxSteeringAngle: 0
-  motorForce: 0
-  nextNode: 2
+  sightDistance: 30
+  approachingWall: 0
+  wallMask:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!1 &8757905888150113657
 GameObject:
   m_ObjectHideFlags: 0
@@ -751,7 +757,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8757905888150113656}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Wheel Colliders
   m_TagString: Untagged
   m_Icon: {fileID: 0}
