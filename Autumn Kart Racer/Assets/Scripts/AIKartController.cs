@@ -22,6 +22,7 @@ public class AIKartController : MonoBehaviour
 
     [Header("Sight")]
     [SerializeField] private float sightDistance = 15;
+    [SerializeField] private Vector3 sightOffset; 
     [SerializeField] private bool approachingWall = false;
     [SerializeField] private LayerMask wallMask; 
 
@@ -45,13 +46,15 @@ public class AIKartController : MonoBehaviour
 
     private void CheckWalls()
     {
-        Debug.DrawRay(transform.position, Quaternion.AngleAxis(-45, transform.up) * transform.forward * sightDistance, Color.blue);
-        Debug.DrawRay(transform.position, Quaternion.AngleAxis(-30, transform.up) * transform.forward * sightDistance, Color.blue);
-        Debug.DrawRay(transform.position, Quaternion.AngleAxis(-15, transform.up) * transform.forward * sightDistance, Color.blue);
-        Debug.DrawRay(transform.position, transform.forward * sightDistance, Color.blue);
-        Debug.DrawRay(transform.position, Quaternion.AngleAxis(15, transform.up) * transform.forward * sightDistance, Color.blue);
-        Debug.DrawRay(transform.position, Quaternion.AngleAxis(30, transform.up) * transform.forward * sightDistance, Color.blue);
-        Debug.DrawRay(transform.position, Quaternion.AngleAxis(45, transform.up) * transform.forward * sightDistance, Color.blue);
+        Debug.DrawRay(transform.position + sightOffset, Quaternion.AngleAxis(-45, transform.up) * transform.forward * sightDistance, Color.blue);
+        Debug.DrawRay(transform.position + sightOffset, Quaternion.AngleAxis(-30, transform.up) * transform.forward * sightDistance, Color.blue);
+        Debug.DrawRay(transform.position + sightOffset, Quaternion.AngleAxis(-15, transform.up) * transform.forward * sightDistance, Color.blue);
+
+        Debug.DrawRay(transform.position + sightOffset, transform.forward * sightDistance, Color.red);
+
+        Debug.DrawRay(transform.position + sightOffset, Quaternion.AngleAxis(15, transform.up) * transform.forward * sightDistance, Color.blue);
+        Debug.DrawRay(transform.position + sightOffset, Quaternion.AngleAxis(30, transform.up) * transform.forward * sightDistance, Color.blue);
+        Debug.DrawRay(transform.position + sightOffset, Quaternion.AngleAxis(45, transform.up) * transform.forward * sightDistance, Color.blue);
 
         RaycastHit hit; 
 
