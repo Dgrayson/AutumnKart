@@ -46,7 +46,11 @@ public class KartController : MonoBehaviour
     private void Accelerate()
     {
         frontDriverCollider.motorTorque = verticalInput * motorForce;
-        frontPassengerCollider.motorTorque = verticalInput * motorForce; 
+        frontPassengerCollider.motorTorque = verticalInput * motorForce;
+        /*rearPassengerCollider.motorTorque = verticalInput * motorForce;
+
+        rearDriverCollider.motorTorque = verticalInput * motorForce;*/
+
     }
 
     private void Steer()
@@ -61,8 +65,8 @@ public class KartController : MonoBehaviour
     {
         UpdateWheelPose(frontDriverCollider, frontDriverT);
         UpdateWheelPose(frontPassengerCollider, frontPassengerT);
-        UpdateWheelPose(rearDriverCollider, rearDriverT);
-        UpdateWheelPose(rearPassengerCollider, rearPassengerT);
+        /*UpdateWheelPose(rearDriverCollider, rearDriverT);
+        UpdateWheelPose(rearPassengerCollider, rearPassengerT);*/
     }
 
     private void UpdateWheelPose(WheelCollider _collider, Transform _transform) 

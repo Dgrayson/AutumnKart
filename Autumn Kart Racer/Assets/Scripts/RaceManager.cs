@@ -8,6 +8,10 @@ public class RaceManager : MonoBehaviour
     [SerializeField] private int maxLaps;
 
     [SerializeField] private TextMeshProUGUI lapText;
+    [SerializeField] private TextMeshProUGUI finshText;
+    [SerializeField] private GameObject resultsPanel;
+
+    private KartController kartController; 
 
     private int currCheckpoint = 0; 
 
@@ -31,7 +35,10 @@ public class RaceManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(currentLap > maxLaps)
+        {
+            FinishRace(); 
+        }
     }
 
     private void UpdateText()
@@ -58,5 +65,16 @@ public class RaceManager : MonoBehaviour
         currentLap++;
 
         UpdateText(); 
+    }
+
+    private void FinishRace()
+    {
+        ShowResults();
+        kartController.enabled = false; 
+    }
+
+    private void ShowResults()
+    {
+        resultsPanel.SetActive(true);
     }
 }
